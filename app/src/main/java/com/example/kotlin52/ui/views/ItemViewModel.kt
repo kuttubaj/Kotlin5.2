@@ -13,10 +13,10 @@ class ItemViewModel : ViewModel() {
     private val itemRepository = ItemRepository()
 
     init {
-        getHeroes()
+        getItem()
     }
 
-    private fun getHeroes() {
+    fun getItem() {
         _itemLiveData.value = UiState(isLoading = false, success =  itemRepository.getItem())
         Log.e("data", "getHeroes: ${itemRepository.getItem()}", )
     }

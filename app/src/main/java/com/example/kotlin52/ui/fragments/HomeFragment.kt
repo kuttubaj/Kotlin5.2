@@ -14,6 +14,7 @@ import com.example.kotlin52.data.models.Item
 import com.example.kotlin52.databinding.FragmentHomeBinding
 import com.example.kotlin52.ui.adapter.ItemAdapter
 import com.example.kotlin52.ui.views.ItemViewModel
+import com.example.kotlin52.utils.App
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
@@ -33,10 +34,10 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initialize()
         toGoSecondFragment()
-
     }
 
     private fun initialize() = with(binding) {
+        viewModel.getItem()
         viewModel.itemLIveData.observe(viewLifecycleOwner) { uiState ->
             rvItem.adapter = itemAdapter
             uiState.success?.let {

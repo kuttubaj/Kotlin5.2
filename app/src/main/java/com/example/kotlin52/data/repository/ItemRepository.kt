@@ -2,16 +2,13 @@ package com.example.kotlin52.data.repository
 
 import com.example.kotlin52.R
 import com.example.kotlin52.data.models.Item
+import com.example.kotlin52.utils.App
 
 class ItemRepository {
-private val items = mutableListOf(
-    Item(R.drawable.hello, "восстань"),
-    Item(R.drawable.hello, "E Ранг"),
-    Item(R.drawable.hello, "S ранг")
-)
-    fun getItem() = items
+
+    fun getItem() = App.database.itemDao().getAllItems()
 
     fun addItem(item: Item){
-        items.add(item)
+        App.database.itemDao().addItem(item)
     }
 }

@@ -12,7 +12,6 @@ import com.example.kotlin52.R
 import com.example.kotlin52.data.models.Item
 import com.example.kotlin52.databinding.FragmentAddItemBinding
 import com.example.kotlin52.ui.views.ItemViewModel
-import java.util.logging.Handler
 
 
 class AddItemFragment : Fragment() {
@@ -41,7 +40,7 @@ class AddItemFragment : Fragment() {
                 progressBar.isVisible = false
                 viewModel.addItem(Item(
                     image = R.drawable.hello,
-                    etName.text.toString().trim()
+                    name = etName.text.toString().trim()
                 )
                 )
                 findNavController().navigateUp()
